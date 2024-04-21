@@ -9,7 +9,6 @@ myvenv/
 venv/
 
 # Database
-db.sqlite3
 
 
 
