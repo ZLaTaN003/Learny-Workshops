@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock  %}</title>
+    
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+<script src="https://kit.fontawesome.com/55b8a061b6.js" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    {% block csspart %}{% endblock  %}
+
+</head>
+<body>
+    <header>
+        <div class="nav container">
+
+            <a href="{% url "home" %}" class="logo"><img src="{% static "logo.png" %}" alt="logo" height="30" width="30"></a>
+            <input type="checkbox" name="" id="menu">
+            <label for="menu"><i class='bx bx-menu' id="menu-icon" ></i></label>
+            
+            <ul class="navbar">
+                <li><a href="{% url "category" %}">Explore</a></li>
+
+                <li><a href="">Trending</a></li>
+                <li><a href="">Teach with us</a></li>
+
+                <li><a href="">Profile</a></li>
+
+            </ul>
+            <a href="login.html" class="btn">Login</a>
+        </div>
+    </header>
+    {% block body %}
+    
+
+    {% endblock  %}
+
+</body>
+</html>

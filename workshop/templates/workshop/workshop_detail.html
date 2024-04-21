@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Workshop Detail{% endblock  %}
+
+{% block csspart %}
+{% endblock  %}
+{% block body %}
+
+
+<div class="workshops container"style="margin-top:30px">
+    <div class="workshop-related" style="display:flex; justify-content:space-between">
+    <div class="course-img" style="max-width: 700px;
+    height: 100%;">
+    <img src="{{workshop.image.url}}" alt="" style=" border-radius: 3rem 0 3rem 3rem">
+ </div>
+ <a href="" class="btn" style=" font-size:medium; height:40px;" >Enroll</a>
+
+</div>
+    <h1>{{workshop.name}}</h1>
+</p>
+    <p>{{workshop.description}}</p>
+    <p>{{workshop.price}}</p>
+    <p>{{workshop.workshopcategory}} </p>
+    <span>{{workshop.date}}</span>
+
+    <p>By</p>
+    <span style="display:block; font-weight:500">{{workshop.instructor}}</span>    
+
+
+</div>
+
+
+
+{% endblock  %}
+

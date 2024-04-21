@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Workshops{% endblock  %}
+{% block csspart %}
+
+<link rel="stylesheet" href="{% static "workshop/workshop.css" %}">
+{% endblock  %}
+
+
+
+
+{% block body %}
+
+
+
+
+<div class="responsive-modal">
+    <button class="btn" id="btn-modal">Filterく</button>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="modal">
+      <button class="modal-close-btn" id="close-btn"><i class="fa fa-times" title="閉じる"></i></button>
+
+      <div class="filters-resposive">
+         <div class="filt">
+            <div class="filter-based-category">
+               <h4>Category</h4>
+               
+            </div>
+
+            <div class="link-course">
+                <a href="{% url "category" %}">All courses</a>
+                {% for category in categories %}
+                <a href="{% url "category_details" category.workshopcategoryslug %}"class="cat-link">{{category.name}}</a>
+                {% endfor %}
+
+
+
+
+            </div>
+         <div class="filter-diff-fee">
+            <form action="{% url "category" %}" method="get">
+               {% if category_slug %}
+               <input type="hidden" name="category" value="{{category_slug}}">
+               {% endif %}
+               <h4>Difficulty</h4>
+               {% for diff in difficulty %}
+               <div class="checkbox-filter">
+             <input type="checkbox" name="difficulty" id="difficulty" value="{{diff|lower}}">
+
+             <label for="difficulty">{{diff}}</label>
+       </div>
+   {% endfor %}         
+              <br>
+              <h4>Price</h4>
+              <div class="checkbox-filter">
+
+               <input type="checkbox" name="paid" id="paid" value="paid">
+               <label for="paid">Paid</label>
+              </div>
+              <div class="checkbox-filter">
+               
+               <input type="checkbox" name="paid" id="paid" value="free">
+               <label for="free">Free</label>
+
+              </div>        
+              <button type="submit" class="btn">Submit</button>
+    
+
+
+               
+            </form>
+         </div>
+   
+      
+   
+    </div>
+   </div>
+   </div>
+</div>
+    <section class="course-section courses-list">
+        <div class="course-container">
+         <div class="filters">
+            <div class="filter-based-category">
+               <h4>Category</h4>        
+            </div>
+            <div class="link-course">
+                <a href="{% url "category" %}">All courses</a>
+                {% for category in categories %}
+                <a href="{% url "category_details" category.workshopcategoryslug %}"class="cat-link">{{category.name}}</a>
+                {% endfor %}
+            </div>
+         <div class="filter-diff-fee">
+            
+            <form action="{% url "category" %}" method="get">
+               {% if category_slug %}
+
+               <input type="hidden" name="category" value="{{category_slug}}">
+               {% endif %}
+
+               <h4>Difficulty</h4>         
+                {% for diff in difficulty %}
+                <div class="checkbox-filter">
+
+    <input type="checkbox" name="difficulty" id="difficulty" value="{{diff|lower}}">
+    <label for="difficulty">{{diff}}</label>
+</div>
+    {% endfor %}         
+               <br>
+               <h4>Price</h4>
+               <div class="checkbox-filter">
+
+                <input type="checkbox" name="paid" id="paid" value="paid">
+                <label for="paid">Paid</label>
+               </div>
+               <div class="checkbox-filter">
+                
+                <input type="checkbox" name="paid" id="free" value="free">
+                <label for="free">Free</label>
+               </div>       
+               
+               <button type="submit" class="btn">Submit</button>
+            </form>
+         </div>
+
+         </div>
+         {% for course in all_workshops %}
+
+          <div class="courses">
+         <div class="item">
+            <div class="course-img">
+               <img src="{{course.image.url}}" alt="">
+            </div>
+            <div class="course-content">
+                
+               <h4>{{course.name}}</h4>
+               <p>{{course.shortdescription}}</p>
+               <span>{{course.instructor}}</span>
+               <p>rating--  <span>students{{course.students_in_workshop}}</span></p>
+               <p>{{course.date}}</p>
+               <a href="{% url "workshop_detail"  course.workshopslug%}" class="btn">Join</a>
+               <a href="{% url "related_workshops" course.workshopslug %}">Learn {{course.workshopcategory}}</a>
+            </div>
+            <div class="course-more">
+               <p>{{course.price}}$</p>
+            </div>
+         </div>
+         {% endfor %}
+         </div>        
+      </div>
+    </section>
+
+
+
+
+<script src="{% static "workshop.js" %}"></script>
+
+{% endblock  %}
+

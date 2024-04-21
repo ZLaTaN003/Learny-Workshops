@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Related Workshops{% endblock  %}
+
+{% block csspart %}
+{% endblock  %}
+{% block body %}
+
+{% for course in all_workshops %}
+
+<div class="workshops container"style="margin-top:30px">
+    <div class="workshop-related" style="display:flex; justify-content:space-between">
+    <div class="course-img" style="max-width: 400px;
+    height: 100%; flex-basis:1000px">
+    <img src="{{course.image.url}}" alt="" style=" border-radius: 3rem 0 3rem 3rem">
+ </div>
+ <a href="{% url "workshop_detail"  course.workshopslug%}" class="btn" style=" font-size:medium; height:40px;" >Join</a>
+
+</div>
+    <h1>{{course.name}}</h1>
+
+    <p>{{course.description}}</p>
+    <p>By</p>
+    <span style="display:block; font-weight:500">{{course.instructor}}</span>
+    
+
+
+
+</div>
+
+{% endfor %}
+
+{% endblock  %}
+

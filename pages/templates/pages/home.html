@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+
+<section class="container home" id="home">
+    <div class="text">
+        <h1>Empower Your Mind <br>Enrich Your Skills <br>Learn, Grow, Succeed!</h1>
+        <a href="register.html" class="btn">Sign UP</a>
+    </div>
+</section>
+<section class="container features" id="features">
+    <div class="box">
+    <i class='bx bxs-chevron-up-circle'></i>
+    <h3>Upskill your Career</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptas id magnam praesentium nisi</p>
+</div>
+<div class="box">
+    <i class='bx bxs-heart-circle'></i>
+    <h3>Join the Workshops you Love</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptas id magnam praesentium nisi</p>
+</div>
+<div class="box">
+    <i class='bx bxs-user-circle'></i>
+    <h3>Experience World-Class Faculty</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptas id magnam praesentium nisi</p>
+</div>
+</section>
+<section class="container about" id="home">
+    <div class="about-img">
+        <img src="{% static "about.jpg" %}" alt="">
+
+    </div>
+    <div class="about-txt">
+        <span>About Us</span>
+        <h2>Craft Your Future <br>Start Your Journey with Learny!</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptas id magnam praesentium nisi</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptas id magnam praesentium nisi</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptas id magnam praesentium nisi</p>
+        <a href="" class="btn">Join now</a>
+
+
+    </div>
+</section>
+<section class="container about" id="home">
+   
+    <div class="about-txt ">
+        <h2>We Provide You the Best <br> Workshops which will help you Upskill!</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptas id magnam praesentium nisi</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptas id magnam praesentium nisi</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptas id magnam praesentium nisi</p>
+        <a href="" class="btn">View Workshops</a>
+        
+
+
+    </div>
+    <div class="about-img">
+        <img src="{% static "progress.jpg" %}" alt="">
+
+    </div>
+</section>
+
+
+{% include "footer.html" %}
+{% endblock  %}
