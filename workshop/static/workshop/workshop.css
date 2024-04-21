@@ -115,8 +115,9 @@
   font-size: 14px;
   line-height: 1.4;
 }
-
-
+.courses{
+  margin-top: 25px;
+}
 /** Modal */
 .modal {
   pointer-events: none;
@@ -166,3 +167,15 @@
   border: none;
 }
 
+.telescope{
+  font-size: 32px;
+  position: relative;
+  top: 10px;
+  left: 50px;
+  color: rgb(84, 59, 114);
+
+}
+
+.telescope:hover{
+  color:  rgba(21,57,119,255);
+}

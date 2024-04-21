@@ -125,9 +125,9 @@
 
          </div>
          {% for course in all_workshops %}
-
+<div class="allcourses">
           <div class="courses">
-         <div class="item">
+          <div class="item">
             <div class="course-img">
                <img src="{{course.image.url}}" alt="">
             </div>
@@ -138,13 +138,16 @@
                <span>{{course.instructor}}</span>
                <p>rating--  <span>students{{course.students_in_workshop}}</span></p>
                <p>{{course.date}}</p>
+               <div class="learn-more">
                <a href="{% url "workshop_detail"  course.workshopslug%}" class="btn">Join</a>
-               <a href="{% url "related_workshops" course.workshopslug %}">Learn {{course.workshopcategory}}</a>
+               <a href="{% url "related_workshops" course.workshopslug %}"class="more-icon"><i class="fa-solid fa-person-chalkboard telescope"></i></a>
+            </div>
             </div>
             <div class="course-more">
                <p>{{course.price}}$</p>
             </div>
          </div>
+      </div>
          {% endfor %}
          </div>        
       </div>
