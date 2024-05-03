@@ -79,7 +79,9 @@ header{
     color:  rgb(213, 227, 239);
     border-radius: 5rem;
 }
-
+button{
+    box-shadow: none;
+}
 .btn:hover{
     background-color: rgba(21,57,119,255);
 }

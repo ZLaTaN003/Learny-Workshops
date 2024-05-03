@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+
+
+<div class="login container">
+    <div class="login-container">
+        <h2>Login to your account</h2>
+        <p>Welcome Back Please login to continue</p>
+     
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <span>Enter your Username</span>
+            {{form.username}}
+            <span>Your Password</span>
+            {{form.password}}
+            <button type="submit" class="btn">Login</button>
+
+
+        </form>
+
+            <p class="noacc">Dont have a account?</p>
+            <a href={% url "register" %} class="btn">Sign Up</a>
+        
+        
+
+    </div>
+    <div class="login-image">
+        <img src={% static "login.png" %} alt="progress">
+    </div>
+</div>
+{% endblock  %}
+
+
+
