@@ -311,3 +311,13 @@ footer{
     }
 }
 
+#google{
+    margin-left: 40px;
+}
+.btn-g{
+    display: flex;
+    border-radius: 5rem;
+    justify-content: center;
+    padding: 8px 16px;
+    cursor: pointer;
+}

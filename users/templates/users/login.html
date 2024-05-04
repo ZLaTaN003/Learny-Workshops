@@ -20,6 +20,11 @@
 
 
         </form>
+        {% load socialaccount %}
+        <form action="{% provider_login_url 'google' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn-g"><i class="fa-brands fa-google"style="margin-right:30px;"></i>Google Login</button>
+          </form>
 
             <p class="noacc">Dont have a account?</p>
             <a href={% url "register" %} class="btn">Sign Up</a>

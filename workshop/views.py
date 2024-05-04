@@ -49,7 +49,7 @@ def category(request):
     categories = WorkshopCategory.objects.all()
     workshops = Workshop.objects.all()
 
-    category = request.GET.get("category") #hidden input field
+    category = request.GET.get("category") #hidden input field which i get from category_details
     if category:
         category_selected = WorkshopCategory.objects.get(workshopcategoryslug=category) 
         workshops = category_selected.workshop_set.all()
@@ -63,7 +63,6 @@ def category(request):
     elif paid_or_free == "free":
         workshops = workshops.filter(paid=False)
   
-
     ctx = {"categories":categories,"all_workshops":workshops,"difficulty":difficulty_levels,"category_slug":category}
     return render(request,"workshop/workshop_category.html",context=ctx)
 

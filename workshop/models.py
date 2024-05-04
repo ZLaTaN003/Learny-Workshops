@@ -63,4 +63,4 @@ class Enrollment(models.Model):
 
 
 class Profile(models.Model):
-    pass
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
