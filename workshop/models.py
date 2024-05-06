@@ -61,6 +61,3 @@ class Enrollment(models.Model):
         return f"{self.student} joined {self.workshop}"
 
 
-
-class Profile(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)

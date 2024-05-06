@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock  %}</title>
+    {% block csspart %}{% endblock  %}
     
 <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -13,7 +14,7 @@ href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
-    {% block csspart %}{% endblock  %}
+
 
 </head>
 <body>

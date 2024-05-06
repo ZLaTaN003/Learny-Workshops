@@ -321,3 +321,13 @@ footer{
     padding: 8px 16px;
     cursor: pointer;
 }
+
+.form-control:focus{
+    outline: 3.5px solid  rgb(84, 59, 114);
+}
+
+.pfp-img{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+}
