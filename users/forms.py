@@ -8,14 +8,16 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ["username","email","password1","password2"]
 
-    def save(self, commit=True):
+    """ 
+    took down since doesnt work for users made thru all_auth
+   def save(self, commit=True):
         
         user = super().save(commit=False)
         if commit:
             user.save()  
             Profile.objects.create(user=user)
         
-        return user
+        return user"""
         
 
 class ProfileEdit(forms.Form):
