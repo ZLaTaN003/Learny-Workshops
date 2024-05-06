@@ -26,12 +26,13 @@ href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
             <label for="menu"><i class='bx bx-menu' id="menu-icon" ></i></label>
             
             <ul class="navbar">
+                <li><input type="text"></li>
+
                 <li><a href="{% url "category" %}">Explore</a></li>
 
                 <li><a href="">Trending</a></li>
-                <li><a href="">Teach with us</a></li>
 
-                <li><a href="">Profile</a></li>
+                <li><a href="{% url "profile" %}">Profile</a></li>
 
             </ul>
             {% if user.is_authenticated %}
