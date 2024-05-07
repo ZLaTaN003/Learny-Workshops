@@ -36,5 +36,5 @@ To get started with Learny, follow these steps:
 
 ## Contributing
 
-We welcome contributions from the community to enhance the functionality and user experience of Learnify. If you'd like to contribute, please fork the repository, make your changes, and submit a pull request outlining the proposed improvements.
+We welcome contributions from the community to enhance the functionality and user experience of Learny. If you'd like to contribute, please fork the repository, make your changes, and submit a pull request outlining the proposed improvements.
 
