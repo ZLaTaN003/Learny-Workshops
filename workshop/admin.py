@@ -8,3 +8,4 @@ class WorkshopAdmin(admin.ModelAdmin):
 admin.site.register(Workshop,WorkshopAdmin)
 admin.site.register(WorkshopCategory)
 admin.site.register(Instructor)
+admin.site.register(Enrollment)
