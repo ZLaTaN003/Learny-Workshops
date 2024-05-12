@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Workshop,WorkshopCategory
+from django.shortcuts import render,get_object_or_404
+from .models import Workshop,WorkshopCategory,Enrollment
 from django.http import HttpResponse
 
 # Create your views here.
@@ -13,8 +13,19 @@ def all_workshops(request):
     return render(request,"workshop/all_workshops.html",context=ctx)'''
 
 def workshop_detail(request,slugworkshop):
+    user  = request.user
     workshop = Workshop.objects.get(workshopslug=slugworkshop)
-    ctx = {"workshop":workshop}
+    enrolled = Enrollment.objects.filter(student=user, workshop=workshop).exists()
+    if request.method == "POST":
+        if not enrolled:
+            Enrollment.objects.create(student=user,workshop=workshop)
+            workshop.students_in_workshop += 1
+        else:
+            enrollment_to_delete = Enrollment.objects.get(student=user, workshop=workshop)
+            enrollment_to_delete.delete()
+
+        
+    ctx = {"workshop":workshop,"enroll":enrolled}
     return render(request,"workshop/workshop_detail.html",context=ctx)
 
 def related_workshops(request,slugworkshop):

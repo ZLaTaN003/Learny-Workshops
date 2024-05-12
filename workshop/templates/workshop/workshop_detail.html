@@ -14,8 +14,20 @@
     height: 100%;">
     <img src="{{workshop.image.url}}" alt="" style=" border-radius: 3rem 0 3rem 3rem">
  </div>
- <a href="" class="btn" style=" font-size:medium; height:40px;" >Enroll</a>
+<form method="post">
+    {% csrf_token %}
+    {% if enroll %}
+    <button type="submit" class = "btn" style="border:none;">
+        Enroll
+    </button>
 
+    {% else %}
+    <button type="submit" class = "btn" style="border:none;">
+        Leave
+    </button>
+    {% endif %}
+
+</form>
 </div>
     <h1>{{workshop.name}}</h1>
 </p>

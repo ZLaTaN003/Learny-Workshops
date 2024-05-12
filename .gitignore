@@ -10,7 +10,6 @@ venv/
 
 # Database
 
-db.sqlite3
 
 # macOS
 ._*

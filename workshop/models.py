@@ -42,6 +42,7 @@ class Workshop(models.Model):
     price = models.IntegerField()
 
 
+
     def save(self, *args, **kwargs):
         self.workshopslug = slugify(self.name)
 
