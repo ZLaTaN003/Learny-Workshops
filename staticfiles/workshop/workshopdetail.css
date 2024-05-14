@@ -1,0 +1,65 @@
+
+.hero-img{
+    position: relative;
+}
+
+.hero-img img{
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.course-name{
+    font-weight: bold;
+    position: absolute;
+    top: 35%;
+    padding: 20px;
+    left: 25%;
+}
+
+.hero-img h1{
+    font-size: 45px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color:  rgb(235, 235, 251);
+
+}
+.course-des{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.course-des h4{
+    margin-bottom: 20px;
+    font-size: 27px;
+    font-weight: bold;
+    color: rgb(84, 59, 114);
+    text-transform: uppercase;
+}
+.course-des p{
+    color: gray;
+    font-size: 19px;
+}
+span{
+    color: gray;
+}
+p i{
+    color: rgb(84, 59, 114);
+}
+.cate{
+    color: rgb(84, 59, 114);
+}
+
+.join{
+    margin-top: 30px;
+}
+@media(max-width: 638px){
+    .hero-img h1{
+        font-size: 15px;
+    }
+    .course-name{
+        top: 25%;
+    }
+    
+}
