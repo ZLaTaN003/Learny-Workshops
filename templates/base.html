@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock  %}</title>
     {% block csspart %}{% endblock  %}
-    
+
 <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 <script src="https://kit.fontawesome.com/55b8a061b6.js" crossorigin="anonymous"></script>
 
 
     <link rel="stylesheet" href="{% static 'style.css' %}">
+
 
 
 
@@ -26,10 +27,18 @@ href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
             <label for="menu"><i class='bx bx-menu' id="menu-icon" ></i></label>
             
             <ul class="navbar">
+                <form action="{% url "search" %}" method="get">
+
+                  <li><div class="search-box">
+                    
+                    <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+                    <input type="text" class="input-search" placeholder="Type to Search..." name="course">
+                  </div></li>
+                </form>
 
                 <li><a href="{% url "category" %}">Explore</a></li>
 
-                <li><a href="">Trending</a></li>
+                <li><a href="{% url "contact" %}">Teach with Us</a></li>
 
                 <li><a href="{% url "profile" %}">Profile</a></li>
 
@@ -48,6 +57,7 @@ href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     
 
     {% endblock  %}
+    {% include "footer.html" %}
 
 </body>
 </html>

@@ -7,7 +7,8 @@ urlpatterns = [
     path('register/',views.register,name='register'),
     path('login/',views.Login.as_view(),name='login_url'),
     path('logout/',LogoutView.as_view(next_page=reverse_lazy("login_url")),name='logout_url'),
-    path('profile',views.profile, name="profile")
+    path('profile',views.profile, name="profile"),
+    path('contact/',views.contactus,name="contact")
 
 
 

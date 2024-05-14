@@ -117,6 +117,12 @@
 }
 .courses{
   margin-top: 25px;
+  
+}
+
+.btn-modalb{
+  display: flex;
+  justify-content: center;
 }
 /** Modal */
 .modal {
@@ -158,6 +164,11 @@
 }
 
 
+.courses{
+  height: 450px;
+}
+
+
 
 }
 
@@ -167,15 +178,18 @@
   border: none;
 }
 
-.telescope{
-  font-size: 32px;
-  position: relative;
-  top: 10px;
-  left: 50px;
-  color: rgb(84, 59, 114);
-
+.learn-more{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.telescope:hover{
-  color:  rgba(21,57,119,255);
+.courses{
+  margin-bottom: 35px;
+}
+
+
+.studentsicon{
+  font-size: larger;
+  color: rgb(84, 59, 114);
 }

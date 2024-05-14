@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from django.urls import reverse_lazy,reverse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +34,7 @@ ALLOWED_HOSTS = []
 
 #Google Oauth
 
-SITE_ID = 2
+SITE_ID = 3
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
@@ -124,6 +125,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'teamzlearny@gmail.com' 
+EMAIL_HOST_PASSWORD = 'nlctrzdpxzfmdxjy'     
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -172,3 +179,7 @@ AUTHENTICATION_BACKENDS = (
 SOCIALACCOUNT_AUTO_SIGNUP = True
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+LOGIN_URL = 'login_url'
+
+
+#

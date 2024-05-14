@@ -5,9 +5,13 @@ from django.urls import reverse_lazy
 from django.contrib.auth import login,authenticate
 from django.views.generic import DetailView
 from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.views import LoginView
 # Create your views here.
+
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 def register(request):
@@ -31,7 +35,7 @@ class Login(LoginView):
     next_page = reverse_lazy("home")
 
 
-
+@login_required
 def profile(request):
     user = request.user
     user_profile = user.profile
@@ -72,3 +76,21 @@ def profile(request):
 
     ctx = {"user_profile":user_profile,"form":form}
     return render(request,"users/profile.html",context=ctx)
+
+@login_required
+def contactus(request):
+    if request.method == "POST":
+        user = request.user
+        about = request.POST["about"]
+        experience = request.POST["exp"]
+        name = request.POST["fname"]
+        message = f"I am {name}\n  {experience} \n {about} \n my username is {user.username}"
+        send_mail(
+            "Join Team Request",
+            message,
+            'settings.EMAIL_HOST_USER',
+            ["adithyakrishnanszz@gmail.com"],
+            fail_silently=False
+
+        )
+    return render(request,"users/contact.html")

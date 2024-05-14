@@ -4,43 +4,170 @@
 {% block title %}Workshop Detail{% endblock  %}
 
 {% block csspart %}
+<link rel="stylesheet" href="{% static "workshop/workshopdetail.css" %}">
+
 {% endblock  %}
 {% block body %}
 
 
-<div class="workshops container"style="margin-top:30px">
-    <div class="workshop-related" style="display:flex; justify-content:space-between">
-    <div class="course-img" style="max-width: 700px;
-    height: 100%;">
-    <img src="{{workshop.image.url}}" alt="" style=" border-radius: 3rem 0 3rem 3rem">
- </div>
-<form method="post">
-    {% csrf_token %}
-    {% if enroll %}
-    <button type="submit" class = "btn" style="border:none;">
-        Enroll
-    </button>
+<div class="hero-img">
+    <img src="{% static "topic.jpg" %}" alt="">
+    <h1 class="course-name">{{workshop.name}}</h1>
 
+</div>
+
+<div class="container">
+    <div class="workshops container"style="margin-top:30px">
+        <div class="workshop-related" style="display:flex; justify-content:space-between">
+        <div class="course-img" style="max-width: 700px;
+        height: 100%;">
+        <img src="{{workshop.image.url}}" alt="" style=" border-radius: 3rem 0 3rem 3rem">
+        <span>Posted {{workshop.date}}</span>
+
+     </div>
+    <form method="post">
+        {% csrf_token %}
+        {% if  not enroll %}
+        <button type="submit" class = "btn" style="border:none;">
+            Enroll
+        </button>
+    
+        {% else %}
+        <button type="submit" class = "btn" style="border:none;">
+            Leave
+        </button>
+        {% endif %}
+    
+    </form>
+    </div>
+    <div class="course-des">
+        <h4>{{workshop.name}}</h4>
+        <p class="cate">{{workshop.workshopcategory}} </p>
+
+        <hr>
+        <p>{{workshop.description}}</p>
+
+
+    </div>
+
+    <div class="course-des">
+        <h4>Who Should Do This Course?</h4>
+        <hr>
+        <p>{{workshop.who_should_enroll}}</p>
+
+
+    </div>
+    
+    <div class="course-des">
+        <h4>What You Will Learn</h4>
+        {% for skill in skills %}
+        <p> <i class="fa-regular fa-circle-check"></i> {{skill}}</p>
+        {% endfor %}
+        <hr>
+
+
+    </div>
+    <div class="course-des">
+        <h4>Prerequisites</h4>
+        <p>{{workshop.prerequisites}}</p>
+
+       
+        <hr>
+
+
+    </div>
+    {% if enroll %}
+
+    <div class="course-des join">
+        <h4>Join Completed</h4>
+        <p>You have joined this workshop. You can access the course content from the link below.</p>
+        <a href="{{workshop.course_link}}">Course Content</a>
     {% else %}
-    <button type="submit" class = "btn" style="border:none;">
-        Leave
-    </button>
+    <div class="course-des join">
+
+       <h4>Join Now!</h4>
+       <p> You haven't joined this workshop yet, please do so using the 'Join' button above to access the content</p>
+    </div>
+
+       
+
+
+    </div>
     {% endif %}
 
-</form>
-</div>
-    <h1>{{workshop.name}}</h1>
-</p>
-    <p>{{workshop.description}}</p>
-    <p>{{workshop.price}}</p>
-    <p>{{workshop.workshopcategory}} </p>
-    <span>{{workshop.date}}</span>
 
-    <p>By</p>
-    <span style="display:block; font-weight:500">{{workshop.instructor}}</span>    
-
+  
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

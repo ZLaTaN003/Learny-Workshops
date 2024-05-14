@@ -1,6 +1,9 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from .models import Workshop,WorkshopCategory,Enrollment
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+
 
 # Create your views here.
 
@@ -11,7 +14,7 @@ def all_workshops(request):
     all_workshops = Workshop.objects.all()
     ctx = {"all_workshops":all_workshops}
     return render(request,"workshop/all_workshops.html",context=ctx)'''
-
+@login_required
 def workshop_detail(request,slugworkshop):
     user  = request.user
     workshop = Workshop.objects.get(workshopslug=slugworkshop)
@@ -20,25 +23,38 @@ def workshop_detail(request,slugworkshop):
         if not enrolled:
             Enrollment.objects.create(student=user,workshop=workshop)
             workshop.students_in_workshop += 1
+            workshop.save()
+            return redirect(reverse("workshop_detail", args=[slugworkshop]))
+
         else:
             enrollment_to_delete = Enrollment.objects.get(student=user, workshop=workshop)
             enrollment_to_delete.delete()
+            workshop.students_in_workshop -= 1
+            workshop.save()
+            return redirect(reverse("workshop_detail", args=[slugworkshop]))
 
-        
-    ctx = {"workshop":workshop,"enroll":enrolled}
+
+
+    skills = workshop.skills_you_learn.splitlines() 
+    new_skills = []
+    for skill in skills:
+        if skill:
+            new_skills.append(skill)
+
+
+    print(skills)
+    ctx = {"workshop":workshop,"enroll":enrolled,"skills":new_skills}
     return render(request,"workshop/workshop_detail.html",context=ctx)
 
+"""
 def related_workshops(request,slugworkshop):
-    """
-    gets the selected workshop and filter and renders the allworkshops this help me add like a tag to each workshop and clicking it shows
-    similar workshops
-    """
+    
     workshop_selected = Workshop.objects.get(workshopslug=slugworkshop)
     category_of_workshop = workshop_selected.workshopcategory
     workshops_of_category = Workshop.objects.filter(workshopcategory=category_of_workshop)
     ctx = {"all_workshops":workshops_of_category}
     return render(request,"workshop/all_workshops.html",context=ctx)
-
+"""
 def category_details(request,slugworkshopcategory):
     """
     this view helps me to dynamically update the category page with the selected  instance of category model which is related to workshop
@@ -78,8 +94,12 @@ def category(request):
     return render(request,"workshop/workshop_category.html",context=ctx)
 
 
-
-
+def search(request):
+    course = request.GET.get("course")
+    workshops = None
+    print(course)
+    if course:
+        workshops = Workshop.objects.filter(name__icontains = course)
+    ctx = {"workshops":workshops}
+    return render(request,"workshop/searchresult.html",context=ctx)
     
-    
-

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Search{% endblock  %}
+{% block csspart %}
+
+<link rel="stylesheet" href="{% static "workshop/workshop.css" %}">
+{% endblock  %}
+
+
+
+
+{% block body %}
+<div class="container">
+{% for course in workshops %}
+<div class="allcourses">
+          <div class="courses">
+          <div class="item">
+            <div class="course-img">
+               <img src="{{course.image.url}}" alt="" class="workimg" height=270 width=350>
+            </div>
+            <div class="course-content">
+                
+               <h4>{{course.name}}</h4>
+               <p>{{course.shortdescription}}</p>
+               <span> Instructor - {{course.instructor}}</span>
+               <p>{{course.date}}</p>
+               <div class="learn-more">
+               <a href="{% url "workshop_detail"  course.workshopslug%}" class="btn">Join</a>
+               <div class="studentsicon"><i class="fa-solid fa-users"></i><span> {{course.students_in_workshop}}</span>
+               </div>
+            </div>
+            </div>
+            <div class="course-more">
+               <p>{{course.price}}$</p>
+            </div>
+         </div>
+      </div>
+</div>
+
+         {% endfor %}
+
+        </div>
+
+{% endblock %}

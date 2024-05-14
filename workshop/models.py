@@ -31,7 +31,7 @@ class Workshop(models.Model):
     shortdescription = models.CharField(max_length=400)
     description = models.TextField(max_length=2000)
     date = models.DateField(auto_now_add=True)
-    image = models.ImageField(upload_to="workshopimages",default="defaultw")#
+    image = models.ImageField(upload_to="workshopimages",default="defaultw",max_length=500)#
     students_in_workshop = models.IntegerField() #
     workshopcategory = models.ForeignKey(WorkshopCategory, on_delete=models.CASCADE) #r
     difficulty_choices = models.TextChoices("difficulty_choices","Easy Intermediate Difficult")
@@ -40,6 +40,12 @@ class Workshop(models.Model):
     instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)#r
     workshopslug = models.SlugField()
     price = models.IntegerField()
+    course_link = models.CharField(max_length=800)
+
+
+    skills_you_learn = models.TextField(max_length=5000,null=True)
+    who_should_enroll = models.TextField(max_length=5000,null=True)
+    prerequisites = models.TextField(max_length=5000,null= True) 
 
 
 

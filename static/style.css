@@ -259,6 +259,9 @@ footer{
 }
 
 @media(max-width: 768px){
+    .search-box{
+        margin-left: 45px;
+    }
     .nav{
         padding: 10px 0;
     }
@@ -301,6 +304,8 @@ footer{
     .heading h2{
         font-size: 1.4rem;
     }
+    
+
 }
 @media(max-width: 638px){
     .about-text{
@@ -330,4 +335,61 @@ footer{
     width: 400px;
     height: 400px;
     border-radius: 50%;
+}
+
+
+  
+.search-box{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    bottom: 6px;
+    
+  }
+.input-search{
+    height: 40px;
+    width: 300px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background-color:transparent;
+    padding-right: 40px;
+    color:black;
+    background-color: transparent;
+
+  }
+
+.btn-search{
+    width: 40px;
+    height: 40px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right:0px;
+    color:black;
+    background-color: transparent;
+    
+  }
+
+  
+a{
+    white-space: nowrap;
+
+}
+
+
+.contactabout{
+    padding-top: 200px;
+}
+
+.contactbtn{
+    margin-top: 20px;
 }
