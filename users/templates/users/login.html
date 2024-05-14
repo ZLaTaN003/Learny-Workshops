@@ -20,6 +20,9 @@
 
 
         </form>
+        {% if form.errors %}
+        <p style="color:red;">Something went Wrong make sure you entered your username and password Correctly</p>
+        {% endif %}
         {% load socialaccount %}
         <form action="{% provider_login_url 'google' %}" method="post">
             {% csrf_token %}

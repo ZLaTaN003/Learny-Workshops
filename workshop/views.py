@@ -42,7 +42,6 @@ def workshop_detail(request,slugworkshop):
             new_skills.append(skill)
 
 
-    print(skills)
     ctx = {"workshop":workshop,"enroll":enrolled,"skills":new_skills}
     return render(request,"workshop/workshop_detail.html",context=ctx)
 
@@ -97,7 +96,6 @@ def category(request):
 def search(request):
     course = request.GET.get("course")
     workshops = None
-    print(course)
     if course:
         workshops = Workshop.objects.filter(name__icontains = course)
     ctx = {"workshops":workshops}

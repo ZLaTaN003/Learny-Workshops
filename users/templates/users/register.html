@@ -22,7 +22,9 @@
             <button type="submit" class="btn">Register</button>
 
         </form>
-
+        {% if form.errors %}
+        <p style="color:red;">Something went Wrong make sure you entered your username and password Correctly</p>
+        {% endif %}
             <p class="noacc">Have a account?</p>
             <a href={% url "login_url" %} class="btn">Login</a>
         

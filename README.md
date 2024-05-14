@@ -1,29 +1,32 @@
 # Learny - Workshop Platform
 
 Learny is a Django project designed to provide users with a seamless workshop experience. 
+![alt text](project-demo/image-3.png)
 
 ### Explore Section
 
 In the Explore section, users can browse through a catalog-like category section. Here, they can select the topic of the workshop they're interested in. The filter functionality allows users to refine their search based on price, difficulty, and their preferences. Whether it's finding workshops within a certain price range, difficulty level, or based on topics they've liked previously.
-![alt text](image.png)
+![alt text](project-demo/image.png)
 
 ### User Authentication and Google Login
 
 Learny features a robust user management system with seamless authentication. Users can register, log in, and manage their accounts effortlessly. Additionally, the integration of Google Login via django-allauth simplifies the authentication process, offering users a quick and secure way to access the platform.
-![alt text](image-1.png)
+![alt text](project-demo/image-1.png)
 
 ### Profile Section
 
 The Profile section provides users with a personalized space where they can view and manage their workshop engagements. Here, users can access information about the workshops they've joined and edit their profile details.
-![alt text](image-2.png)
+![alt text](project-demo/image-2.png)
 
 ### Join Workshop
 
 Users have the opportunity to join workshops posted on the site. Joining a workshop is simple and straightforward, allowing users to seamlessly access the workshop link and engage with the content.
 
-### Trending
+### Search
+In addition to Explore Users can search for the Workshop they want through Search on the Nav bar
 
-The Trending section highlights workshops with the most enrollments
+### Teach with Us
+This is a simple form which on filling sends me message via gmail.Which help me to give them Instructor Roles
 ## Getting Started
 
 To get started with Learny, follow these steps:
