@@ -1,6 +1,7 @@
 # Learny - Workshop Platform
 
 Learny is a Django project designed to provide users with a seamless workshop experience. 
+
 demonstration video - https://youtu.be/n9dHs2ttKv8?si=gaQT_REQDP7vSCUM
 ![alt text](project-demo/image-3.png)
 
