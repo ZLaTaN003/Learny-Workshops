@@ -75,7 +75,7 @@ def category(request):
     categories = WorkshopCategory.objects.all()
     workshops = Workshop.objects.all()
 
-    category = request.GET.get("category") #hidden input field which i get from category_details
+    category = request.GET.get("category") #hidden input field which i get from category_details or i could use a default param for the category ie categoryslug
     if category:
         category_selected = WorkshopCategory.objects.get(workshopcategoryslug=category) 
         workshops = category_selected.workshop_set.all()
